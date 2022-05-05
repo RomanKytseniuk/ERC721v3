@@ -16,11 +16,11 @@ contract CreateToken is ERC721 {
     tokenCounter++;
     }
     function _setTokenURI(uint256 _tokenId, string memory _tokenURI) internal virtual {
-        require(_exists(_tokenId), "ERC721Metadata: URI set of nonexistent token");  // Checks if the tokenId exists
+        require(_exists(_tokenId), "URI set of nonexistent token");  // Checks if the tokenId exists
         _tokenURIs[_tokenId] = _tokenURI;
     }
     function tokenURI(uint256 _tokenId) public view virtual override returns(string memory) {
-        require(_exists(_tokenId),"ERC721Metadata: URI set of nonexistent token");
+        require(_exists(_tokenId),"URI set of nonexistent token");
         return _tokenURIs[_tokenId];
     }
 }

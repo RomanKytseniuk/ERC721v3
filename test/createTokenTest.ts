@@ -16,8 +16,7 @@ describe("Artwork Smart Contract Tests", function () {
 
     expect(userAmountBefore.toString()).to.equal("0");
 
-    const tokenURI =
-      "https://opensea-creatures-api.herokuapp.com/api/creature/1";
+    const tokenURI = "1";
     await createToken.connect(account1).mint(tokenURI);
     const userAmountAfter = await createToken.balanceOf(account1.address);
 
@@ -27,10 +26,8 @@ describe("Artwork Smart Contract Tests", function () {
   it("tokenURI is set sucessfully", async function () {
     const [account1, account2] = await ethers.getSigners();
 
-    const tokenURI_1 =
-      "https://opensea-creatures-api.herokuapp.com/api/creature/1";
-    const tokenURI_2 =
-      "https://opensea-creatures-api.herokuapp.com/api/creature/2";
+    const tokenURI_1 = "1";
+    const tokenURI_2 = "2";
 
     await createToken.connect(account1).mint(tokenURI_1);
     await createToken.connect(account2).mint(tokenURI_2);
