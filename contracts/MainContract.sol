@@ -12,4 +12,7 @@ contract CheckIftokenERC721{
       testSubject = IERC721Enumerable(_testSubject);
       res = testSubject.supportsInterface(0x80ac58cd);
   }
+  function getRes() public view returns(bool){
+    return res;
+  }
 }

@@ -1,7 +1,7 @@
 import { expect } from "chai";
 import { ethers } from "hardhat";
 
-describe("Artwork Smart Contract Tests", function () {
+describe("Create Toke", function () {
   let createToken: any;
 
   beforeEach(async function () {

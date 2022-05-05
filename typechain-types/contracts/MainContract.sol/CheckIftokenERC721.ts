@@ -24,15 +24,20 @@ import type {
 export interface CheckIftokenERC721Interface extends utils.Interface {
   functions: {
     "check(address)": FunctionFragment;
+    "getRes()": FunctionFragment;
     "res()": FunctionFragment;
   };
 
-  getFunction(nameOrSignatureOrTopic: "check" | "res"): FunctionFragment;
+  getFunction(
+    nameOrSignatureOrTopic: "check" | "getRes" | "res"
+  ): FunctionFragment;
 
   encodeFunctionData(functionFragment: "check", values: [string]): string;
+  encodeFunctionData(functionFragment: "getRes", values?: undefined): string;
   encodeFunctionData(functionFragment: "res", values?: undefined): string;
 
   decodeFunctionResult(functionFragment: "check", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "getRes", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "res", data: BytesLike): Result;
 
   events: {};
@@ -70,6 +75,8 @@ export interface CheckIftokenERC721 extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
+    getRes(overrides?: CallOverrides): Promise<[boolean]>;
+
     res(overrides?: CallOverrides): Promise<[boolean]>;
   };
 
@@ -78,10 +85,14 @@ export interface CheckIftokenERC721 extends BaseContract {
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
+  getRes(overrides?: CallOverrides): Promise<boolean>;
+
   res(overrides?: CallOverrides): Promise<boolean>;
 
   callStatic: {
     check(_testSubject: string, overrides?: CallOverrides): Promise<void>;
+
+    getRes(overrides?: CallOverrides): Promise<boolean>;
 
     res(overrides?: CallOverrides): Promise<boolean>;
   };
@@ -94,6 +105,8 @@ export interface CheckIftokenERC721 extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
+    getRes(overrides?: CallOverrides): Promise<BigNumber>;
+
     res(overrides?: CallOverrides): Promise<BigNumber>;
   };
 
@@ -102,6 +115,8 @@ export interface CheckIftokenERC721 extends BaseContract {
       _testSubject: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
+
+    getRes(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     res(overrides?: CallOverrides): Promise<PopulatedTransaction>;
   };
